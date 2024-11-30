@@ -12,10 +12,4 @@ def organize_subject (content_list) :
     mylist = []
     for line in content_list:
         if line[1] not in mylist and line[1] != '유형': mylist.append(line[1])
-
     return mylist
-
-content = read_file("20231231.csv")
-subjects = organize_subject(content)
-
-print(subjects)
