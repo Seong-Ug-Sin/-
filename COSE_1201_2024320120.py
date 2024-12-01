@@ -7,7 +7,17 @@ def print_subjects(subjects):
     while(True):
         search=input('과목을 선택하세요: ')
         if search in subjects: break
-        else: print('다시 입력하세요. ')
+        else: print('다시 입력하세요.')
     return search
 
 #점수 딕셔너리 생성 함수, return 딕셔너리
+def create_dict(Data,subject,key):
+
+    result={}
+    idx=Data[0].index(key)
+
+    for score in Data:
+        if score[1]==subject:
+            result[int(score[2])]=int(score[idx])
+
+    return result
