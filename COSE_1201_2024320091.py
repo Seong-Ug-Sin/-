@@ -18,8 +18,8 @@ subs = f1.organize_subject(data)
 
 selected = f2.print_subjects(subs)
 
-rslt_M = f2.create_dict(data, '남자')
-rslt_F = f2.create_dict(data, '여자')
+rslt_M = f2.create_dict(data, selected, '남자')
+rslt_F = f2.create_dict(data, selected, '여자')
 
 X_axis = list(rslt_M.keys())
 Y_Male = []
@@ -30,7 +30,7 @@ for pts in X_axis:
   Y_Male.append(rslt_M[pts])
 
 plt.title('2023학년도 수능시험 {} 성적'.format(selected))
-plt.plot(X_axis, Y_FeMale, 'r-', label=  '여자')
+plt.plot(X_axis, Y_FeMale, 'r-', label= '여자')
 plt.plot(X_axis, Y_Male, 'b-', label = '남자')
 plt.legend()
-plt.show()  
+plt.show()
