@@ -1,4 +1,4 @@
-#파일명 == 'COSE_1201_2024320091'
+#파일명 == 'COSE_1201_2024320091(MAIN)'
 
 import numpy as np
 #numpy가 설치되어 있지 않으시다면, 터미널에 pip install numpy를 입력해 실행해주세요
