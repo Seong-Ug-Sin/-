@@ -21,17 +21,17 @@ selected = f2.print_subjects(subs)
 
 rslt_M = f2.create_dict(data, selected, '남자')
 rslt_F = f2.create_dict(data, selected, '여자')
+print(rslt_M)
+# X_axis = list(rslt_M.keys())
+# Y_Male = []
+# Y_FeMale = []
 
-X_axis = list(rslt_M.keys())
-Y_Male = []
-Y_FeMale = []
+# for pts in X_axis:
+#   Y_FeMale.append(rslt_F[pts])
+#   Y_Male.append(rslt_M[pts])
 
-for pts in X_axis:
-  Y_FeMale.append(rslt_F[pts])
-  Y_Male.append(rslt_M[pts])
-
-plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
-plt.plot(X_axis, Y_FeMale, 'r-', label= '여자')
-plt.plot(X_axis, Y_Male, 'b-', label = '남자')
-plt.legend()
-plt.show()
+# plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
+# plt.hist(X_axis, Y_FeMale, 'r-', label= '여자')
+# plt.plot(X_axis, Y_Male, 'b-', label = '남자')
+# plt.legend()
+# plt.show()
