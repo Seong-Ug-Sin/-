@@ -36,4 +36,3 @@ plt.hist(X_axis, Y_FeMale, 'r-', label= '여자')
 plt.hist(X_axis, Y_Male, 'b-', label = '남자')
 plt.legend()
 plt.show()
-5
