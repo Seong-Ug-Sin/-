@@ -13,7 +13,8 @@ rcParams["axes.unicode_minus"] = False
 import COSE_1201_2024320092 as f1
 import COSE_1201_2024320120 as f2
 
-data = f1.read_file("{}1231.csv".format(f1.select_year()))
+yr = f1.select_year()
+data = f1.read_file("{}1231.csv".format(yr))
 subs = f1.organize_subject(data)
 
 selected = f2.print_subjects(subs)
@@ -29,7 +30,7 @@ for pts in X_axis:
   Y_FeMale.append(rslt_F[pts])
   Y_Male.append(rslt_M[pts])
 
-plt.title('2023학년도 수능시험 {} 성적'.format(selected))
+plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
 plt.plot(X_axis, Y_FeMale, 'r-', label= '여자')
 plt.plot(X_axis, Y_Male, 'b-', label = '남자')
 plt.legend()
