@@ -1,23 +1,16 @@
-#파일명 == 'C0SE_1201_2024320120'
+#파일명 == 'C0SE_1201_2024320092'
 
-#과목 선택 함수, return 과목
-def print_subjects(subjects):
-    print('<과목 목록>')
-    print('/'.join(subjects))
-    while(True):
-        search=input('과목을 선택하세요: ')
-        if search in subjects: break
-        else: print('다시 입력하세요.')
-    return search
+import csv
 
-#점수 딕셔너리 생성 함수, return 딕셔너리
-def create_dict(Data,subject,key):
+def read_file(name) :
+    f = open(name, "r", encoding = 'cp949')
+    read = csv.reader(f)
+    read = list(read)
+    return read
 
-    result={}
-    idx=Data[0].index(key)
-
-    for score in Data:
-        if score[1]==subject:
-            result[int(score[2])]=int(score[idx])
-
-    return result
+def select_year():
+    num = int(input('1. 2020 / 2. 2021 / 3. 2022 / 4. 2023 중 그래프로 표현할 연도의 번호를 고르세요: '))
+    while True:
+        if num == 1 or num == 2 or num == 3 or num == 4: break
+        else: num = input(('숫자 1,2,3,4 중 다시 입력하세요'))
+    return str(2019+num)
