@@ -3,16 +3,11 @@
 import csv
 
 def read_file(name) :
-    f = open(name, "r", encoding = 'cp949')
+    filepath = './ver 1.1/'+name
+    f = open(filepath, "r", encoding = 'cp949')
     read = csv.reader(f)
     read = list(read)
     return read
-
-def organize_subject (content_list) :
-    mylist = []
-    for line in content_list:
-        if line[1] not in mylist and line[1] != '유형': mylist.append(line[1])
-    return mylist
 
 def select_year():
     num = int(input('1. 2020 / 2. 2021 / 3. 2022 / 4. 2023 중 그래프로 표현할 연도의 번호를 고르세요: '))
