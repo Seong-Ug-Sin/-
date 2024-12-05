@@ -17,21 +17,23 @@ yr = f1.select_year()
 data = f1.read_file("{}1231.csv".format(yr))
 subs = f1.organize_subject(data)
 
+selected = f2.organize_category(subs)
 selected = f2.print_subjects(subs)
 
 rslt_M = f2.create_dict(data, selected, '남자')
 rslt_F = f2.create_dict(data, selected, '여자')
-print(rslt_M)
-# X_axis = list(rslt_M.keys())
-# Y_Male = []
-# Y_FeMale = []
 
-# for pts in X_axis:
-#   Y_FeMale.append(rslt_F[pts])
-#   Y_Male.append(rslt_M[pts])
+X_axis = list(rslt_M.keys())
+Y_Male = []
+Y_FeMale = []
 
-# plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
-# plt.hist(X_axis, Y_FeMale, 'r-', label= '여자')
-# plt.plot(X_axis, Y_Male, 'b-', label = '남자')
-# plt.legend()
-# plt.show()
+for pts in X_axis:
+  Y_FeMale.append(rslt_F[pts])
+  Y_Male.append(rslt_M[pts])
+
+plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
+plt.hist(X_axis, Y_FeMale, 'r-', label= '여자')
+plt.hist(X_axis, Y_Male, 'b-', label = '남자')
+plt.legend()
+plt.show()
+5
