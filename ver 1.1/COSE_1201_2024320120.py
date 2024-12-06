@@ -34,6 +34,8 @@ def create_array(Data,subject,key):
 
     for row in Data[1:]:
         if row[1]==subject:
-            result.append(int(row[idx]))
+            value=int(row[2])
+            quantity=int(row[idx])
+            result.extend([value]*quantity)
 
     return np.array(result)
