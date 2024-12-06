@@ -32,8 +32,8 @@ def create_array(Data,subject,key):
     idx=Data[0].index(key)
     result=[]
 
-    for type in Data[1:]:
-        if type[1]==subject:
-            result.append(type[idx])
+    for row in Data[1:]:
+        if row[1]==subject:
+            result.append(int(row[idx]))
 
     return np.array(result)

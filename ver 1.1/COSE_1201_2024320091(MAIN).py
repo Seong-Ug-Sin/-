@@ -15,24 +15,24 @@ import COSE_1201_2024320120 as f2
 
 yr = f1.select_year()
 data = f1.read_file("{}1231.csv".format(yr))
-subs = f1.organize_subject(data)
+category = f2.organize_category(data)
 
-selected = f2.organize_category(subs)
-selected = f2.print_subjects(subs)
+selected = f2.organize_subject(data, category)
 
-rslt_M = f2.create_dict(data, selected, '남자')
-rslt_F = f2.create_dict(data, selected, '여자')
+rslt_M = f2.create_array(data, selected, '남자')
+rslt_F = f2.create_array(data, selected, '여자')
+bins = max(rslt_F[0], rslt_M[0])-min(rslt_F[-1], rslt_M[-1])
+minimum = min(rslt_F[-1], rslt_M[-1])
 
-X_axis = list(rslt_M.keys())
-Y_Male = []
-Y_FeMale = []
-
-for pts in X_axis:
-  Y_FeMale.append(rslt_F[pts])
-  Y_Male.append(rslt_M[pts])
-
+print(rslt_F)
+print(rslt_M)
+print(bins)
+tick_pos = list(range(minimum, minimum+bins+1, 5))
+plt.xticks(tick_pos)
 plt.title('{}학년도 수능시험 {} 성적'.format(yr,selected))
-plt.hist(X_axis, Y_FeMale, 'r-', label= '여자')
-plt.hist(X_axis, Y_Male, 'b-', label = '남자')
+plt.hist(rslt_F, bins=bins, label= '여자', color='red')
+plt.hist(rslt_M, bins=bins,  label = '남자', color='blue')
+plt.xlabel("표준점수")
+plt.ylabel("인원 수")
 plt.legend()
 plt.show()
