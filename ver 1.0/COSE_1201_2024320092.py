@@ -3,7 +3,8 @@
 import csv
 
 def read_file(name) :
-    f = open(name, "r", encoding = 'cp949')
+    filepath = '/ver 1.0/'+name
+    f = open(filepath, "r", encoding = 'cp949')
     read = csv.reader(f)
     read = list(read)
     return read
